@@ -142,10 +142,11 @@ GTK+ icon theme.
 PATCHES=(
 	"${FILESDIR}/chromium-widevine-r4.patch"
 	"${FILESDIR}/chromium-fix-char_traits.patch"
-	"${FILESDIR}/chromium-75-vaapi.patch"
+	"${FILESDIR}/chromium-75-enable_vaapi_on_linux.patch"
 	"${FILESDIR}/chromium-deconst.patch"
 	"${FILESDIR}/chromium-75-vr-fix.patch"
 	"${FILESDIR}/chromium-75-libstdc.patch"
+	"${FILESDIR}/chromium-arraysize-calculation-minimalistic-fix.patch"
 )
 
 pre_build_checks() {
@@ -380,8 +381,8 @@ src_prepare() {
 	build/linux/unbundle/remove_bundled_libraries.py "${keeplibs[@]}" --do-remove || die
 
 	# Turn back lss.h. see https://chromium-review.googlesource.com/c/crashpad/crashpad/+/1559309
-	cp ${FILESDIR}/BUILD.gn third_party/lss/BUILD.gn
-	cp ${FILESDIR}/lss.h third_party/lss/lss.h
+	cp "${FILESDIR}"/BUILD.gn third_party/lss/BUILD.gn
+	cp "${FILESDIR}"/lss.h third_party/lss/lss.h
 }
 
 src_configure() {

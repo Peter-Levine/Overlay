@@ -142,8 +142,9 @@ GTK+ icon theme.
 PATCHES=(
 	"${FILESDIR}/chromium-widevine-r4.patch"
 	"${FILESDIR}/chromium-fix-char_traits.patch"
-	"${FILESDIR}/chromium-vaapi.patch"
+	"${FILESDIR}/chromium-74-enable_vaapi_on_linux.patch"
 	"${FILESDIR}/chromium-deconst.patch"
+	"${FILESDIR}/chromium-arraysize-calculation-minimalistic-fix.patch"
 )
 
 pre_build_checks() {
